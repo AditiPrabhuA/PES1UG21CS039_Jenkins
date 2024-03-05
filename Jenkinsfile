@@ -1,33 +1,26 @@
 pipeline{
-  agent any
-  stages{
-    stage('Clone repository') {
-    //   steps{
-    //     cjeckout([$class: 'GitSCR',
-    //               branches: [[name: '*/main']],
-    //               userRemoteConfigs: [[url: 'https://github.com/AditiPrabhuA/PES1UG21CS039_Jenkins.git']]])
-    //   }
-    // }
+  agent any 
+  stages {
     stage('Build') {
-      steps{
+      steps {
         build 'PES1UG21CS039-1'
-        sh 'cd main \n g++ test.cpp -o output'
+        sh 'cd main \ng++ main.cpp -o output'
       }
     }
     stage('Test') {
-      steps{
-        sh './output'
+      steps {
+        sh './main/output'
       }
     }
     stage('Deploy') {
-      steps{
-        echo 'deploy'
+      steps {
+        echo 'Deploy'
       }
     }
   }
-  post{
-    failure{
-      error 'Pipeline failed'
+    post {
+      failure {
+        error 'Pipeline failed'
+      }
     }
-  }
 }

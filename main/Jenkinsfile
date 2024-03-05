@@ -2,12 +2,12 @@ pipeline{
   agent any
   stages{
     stage('Clone repository') {
-      steps{
-        cjeckout([$class: 'GitSCR',
-                  branches: [[name: '*/main']],
-                  userRemoteConfigs: [[url: 'https://github.com/AditiPrabhuA/PES1UG21CS039_Jenkins.git']]])
-      }
-    }
+    //   steps{
+    //     cjeckout([$class: 'GitSCR',
+    //               branches: [[name: '*/main']],
+    //               userRemoteConfigs: [[url: 'https://github.com/AditiPrabhuA/PES1UG21CS039_Jenkins.git']]])
+    //   }
+    // }
     stage('Build') {
       steps{
         build 'PES1UG21CS039-1'
